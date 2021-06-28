@@ -17,7 +17,7 @@ library(Rcpp)
 library(lifecycle)
 library(tidyverse)
 library(dplyr)
-library("ggpubr")#para los wilcox whiskers plot
+library("ggpubr")
 library(lattice)
 library("lapply")
 library(FSA)
@@ -56,7 +56,8 @@ tab_BrachyTPMall_1$Bdhn1a<- tab_BrachyTPMall_1[,6]
 png( filename = "tab_BrachyTPMall.png", width = 491, height = 739)
 plot(tab_BrachyTPMall_1)
 dev.off()
-#plot(tab_BrachyTPMall_1$Bdhn1a, tab_BrachyTPMall_1$leaf_rwc) #plot a species pairwise comparison of two variables
+
+plot(tab_BrachyTPMall_1$Bdhn1a, tab_BrachyTPMall_1$leaf_rwc) #plot a species pairwise comparison of two variables
 
 
 # 1. summarize main stats for each column
