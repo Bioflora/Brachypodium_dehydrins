@@ -31,13 +31,9 @@ library(PMCMRplus)
 library(ggplot2)
 library(ggsignif)
 
-
-
-
 #import data as table
 tab_BrachyTPM_Bdhn<- read.csv(file="BrachyTPM_W&D_stats2.csv", h=T, sep=",", na.strings = "NA", stringsAsFactors=FALSE) #solo las Bdhns
 tab_BrachyTPMall<- read.csv(file="BrachyBdhnPhenoW&Dallmod2prueba.csv", h=T, sep=",", na.strings ="NA", stringsAsFactors=FALSE)
-
 
 tab_BrachyTPMall_1<- na.omit(tab_BrachyTPMall)  #Tabla completa pero sin NANs
 
@@ -59,13 +55,10 @@ dev.off()
 
 plot(tab_BrachyTPMall_1$Bdhn1a, tab_BrachyTPMall_1$leaf_rwc) #plot a species pairwise comparison of two variables
 
-
 # 1. summarize main stats for each column
-
 sink("BrachyTPM_W&D_MAIN_stats_all.csv")   
 print(summary(tab_BrachyTPMall_1))       
 sink()                                
-
 
 # 2.1. print histogram for each variable
 hist(tab_BrachyTPMall$Bdhn7)
@@ -76,26 +69,20 @@ boxplot(tab_BrachyTPM_Bdhn$Bdhn1a~ tab_BrachyTPM_Bdhn$ecotype,las=2, col=c("brow
         xlab="", ylab="TPM")
 dev.off()
 
-
 # 2.3.  boxplots with rainbow colors (for multiple samples)
 c1 <- rainbow(10)
 c2 <- rainbow(10, alpha=0.2)
 c3 <- rainbow(10, v=0.7)
 boxplot(tab_BrachyTPMall$Bdhn3 ~ tab_BrachyTPMall$ecotype,las=2,col=c2, medcol=c3, whiskcol=c1, staplecol=c3, boxcol=c3, outcol=c3, pch=23, cex=2)
 
-
-
 # 3. Wilcoxon test for the whole table MD
-
 tab_all<- tab_BrachyTPMall_1
-
 #remove unnnecessary columns
 tab_all2<-subset(tab_all, select=-c(10))
 tab_all3<- subset(tab_all2, select=-c(2:5))    #next step only
 tab_all3$ecotype<-as.factor(tab_all3$ecotype)  #a factor  with the first column. It's use as groups
 tab_all3.df<- data.frame(tab_all3)             
 tab_all3.df$ecotype<-as.factor(tab_all3.df$ecotype)
-
 levels(tab_all3.df$ecotype)
 
 #3.1. Pairwise wilcox test for each variable in tab_all3 (done one by one)
@@ -103,16 +90,14 @@ levels(tab_all3.df$ecotype)
 tab_all3.df$Bdhn1a<- as.numeric(as.character(tab_all3.df$Bdhn1a))
 tab_all3.df$Bdhn2<- as.numeric(as.character(tab_all3.df$Bdhn2))
 
-
 sink("pairwise.result.cn.csv")
 pairwise.wilcox.test(tab_all3.df$leafn,tab_all3.df$ecotype,p.adjust.method = "BH")
 sink()
 
-
 # 3.2. Pairwise comparisons using Wilcoxon rank sum exact test 
        # a data set was created for each ecotype
-      
-#extraccion de los dataset de cada ecotipo mediante slice(#row)
+     
+#extract each dataset from  ecotypes(slice(#row))
 ABR2<- slice(tab_all2, 1:8)
 ABR3<- slice(tab_all2,9:15)
 
@@ -130,12 +115,10 @@ while (contador<=21){
 }
 sink()
 
-
 # 4. kRUSKALL AND DUNNE
   #create a variable joining the ecoyte and treatment
 tab_all2$ET <- paste(tab_all2$ecotype, tab_all2$treatment)
 tab_all2$ET
-
 
 # 4.1 Summarize by group
 contador=6
@@ -152,7 +135,6 @@ while(contador<=6){
 contador=contador+1
 }
 sink()
-
 
 #4.1.1Plotting
   #delta13c is negative so it must be positive to be plotted
@@ -179,7 +161,6 @@ while(contador<=6){
   print(hist)
   contador=contador+1
 }
-
 
 #4.2. Performing Kruskall and Dunn test in one step
 # 4.3 Kruskal-Wallis rank sum test
@@ -274,20 +255,20 @@ while(contador<=6){
 #########################################################################################################################
 
 # 4.6. Plotting Tukey 
-#Para drought
+#Drought
 
 library(tidyverse)
-data<-filter(tab_allABS, treatment=="Drought") #filtrado para Drougth
-write.table(data, file="dataT.csv", append=FALSE, quote=TRUE, sep=",") #Extraido para quitar los guiones
+data<-filter(tab_allABS, treatment=="Drought")
+write.table(data, file="dataT.csv", append=FALSE, quote=TRUE, sep=",") 
 data<- read.csv(file="dataTuk.csv", h=T, sep=";", na.strings = "NA", stringsAsFactors=TRUE) #introduce nueva
 data
-#PAra watered
-dataW<-filter(tab_allABS, treatment=="Watered") #filtrado para Drougth
+#Watered
+dataW<-filter(tab_allABS, treatment=="Watered") 
 dataW
 write.table(dataW, file="dataW.csv", append=FALSE, quote=TRUE, sep=",") #Extraido para quitar los guiones
-dataW1<- read.csv(file="dataW1.csv", h=T, sep=";", na.strings = "NA", stringsAsFactors=TRUE) #introduce nueva
+dataW1<- read.csv(file="dataW1.csv", h=T, sep=";", na.strings = "NA", stringsAsFactors=TRUE) 
 dataW1
-###################################################################################################################
+
 
 #Drought
 model=lm (data$cn ~ data$ecotype)
@@ -295,15 +276,10 @@ ANOVA=aov(model)
 TUKEY <- TukeyHSD(x=ANOVA, 'data$ecotype', conf.level=0.95)
 plot(TUKEY , las=1 , col="brown")
 
-
-#library(multcompView) # load this library
 generate_label_df <- function(TUKEY, variable){
-  
-  
+ 
   Tukey.levels <- TUKEY[[variable]][,4] # leave this value as 4. It is extracting the 4th column of the TUKEY object.
-  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'], stringsAsFactors = TRUE)
-  
-  
+  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'], stringsAsFactors = TRUE) 
   Tukey.labels$ecotype=rownames(Tukey.labels)
   Tukey.labels=Tukey.labels[order(Tukey.labels$ecotype) , ]
   return(Tukey.labels)
@@ -344,16 +320,10 @@ model=lm (dataW1$cn ~ dataW1$ecotype)
 ANOVA=aov(model)
 TUKEY <- TukeyHSD(x=ANOVA, 'dataW1$ecotype', conf.level=0.95)
 plot(TUKEY , las=1 , col="brown")
-
-
-#library(multcompView) # load this library
 generate_label_df <- function(TUKEY, variable){
   
-  
   Tukey.levels <- TUKEY[[variable]][,4] # leave this value as 4. It is extracting the 4th column of the TUKEY object.
-  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'], stringsAsFactors = TRUE)
-  
-  
+  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'], stringsAsFactors = TRUE
   Tukey.labels$ecotype=rownames(Tukey.labels)
   Tukey.labels=Tukey.labels[order(Tukey.labels$ecotype) , ]
   return(Tukey.labels)
