@@ -54,15 +54,15 @@ contador2=5
 while(contador2<9){
   contador=5
     while (contador <=9){
-    aux_tab<-subset(tab_all2, select=-c(10)) #quita la columna 10 (treatment)
-    versus<-colnames(subset( aux_tab,select=c(contador+1)))  #Crea una variable para el titulo segun va corriendo el contador
+    aux_tab<-subset(tab_all2, select=-c(10)) 
+    versus<-colnames(subset( aux_tab,select=c(contador+1))) 
     versus1<-colnames(subset(aux_tab, select=c(contador2+1)))
-    aux1<-unlist(subset( aux_tab, select= c(contador2+1)))           #Para la columna 6 = Bdhn1a (correrx4)
+    aux1<-unlist(subset( aux_tab, select= c(contador2+1)))          
     aux2<- unlist(subset( aux_tab, select= c(contador+1)))
     plot(aux1~aux2, main=paste(versus))
     fit<-summary(fit<-lm(aux1~aux2));abline(fit,col="blue",lty=1, lwd=2)
-    print(fit)                  #Permite que se imprima en pantalla el fit
-    contador = contador+1       #cambiar de columnas en el loop
+    print(fit)                  
+    contador = contador+1       
     }
   contador2=contador2+1
   
@@ -74,107 +74,83 @@ contador2=8
 while(contador2<=10){
   contador=8
   while (contador <=22){
-    aux_tab<-subset(tab_all2, select=-c(10)) #quita la columna 10 (treatment)
-    versus<-colnames(subset( aux_tab,select=c(contador+1)))  #Crea una variable para el titulo segun va corriendo el contador
+    aux_tab<-subset(tab_all2, select=-c(10)) 
+    versus<-colnames(subset( aux_tab,select=c(contador+1)))  
     versus1<-colnames(subset(aux_tab, select=c(contador2+1)))
-    auxAA<-unlist(subset( aux_tab, select= c(contador2+1)))           #Para la columna 6 = Bdhn1a (correrx4)
+    auxAA<-unlist(subset( aux_tab, select= c(contador2+1)))           
     aux2<- unlist(subset( aux_tab, select= c(contador+1)))
     plot(auxAA~aux2, main=paste(versus), xlab=versus1, ylab=versus)
     fit<-summary(fit<-lm(auxAA~aux2));abline(fit,col="chartreuse4",lty=1, lwd=2)
     print(versus)
-    print(fit)                  #Permite que se imprima en pantalla el fit
-    contador = contador+1       #cambiar de columnas en el loop
+    print(fit)                 
+    contador = contador+1       
   }
   contador2=contador2+1
 }
 sink()
-##############################################################
 
-sink("plots_pheno.csv")
-contador=11
-while (contador <=22){
- aux_tab1<-subset(tab_all2, select=-c(10))                 #quita la columna 10 (treatment)
- versus<-colnames(subset( aux_tab,select=c(contador+1)))  #Crea una variable para el titulo segun va corriendo el contador
- leafrwc<-unlist(subset( aux_tab, select= c(11)))           #Para la columna 6 = Bdhn1a (correrx4)
- aux2<- unlist(subset( aux_tab, select= c(contador+1)))
- plot(leafrwc~aux2, main=paste(versus))
- fit<-summary(fit<-lm(leafrwc~aux2));abline(fit,col="green",lty=1, lwd=2)
- print(fit)  #Permite que se imprima en pantalla el fit
- print(plot)
- contador = contador+1       #cambiar de columnas en el loop
- }
-
-sink()
-
-
-
-
-#################################################################################################################
 # 2.2 linear model for each Bdhn by treatment 
 #plot Bdhn1aW vs Bdhn1aD linear regression model (lm) and estimates
 
-sink("fit_conRMRWBdhn7.csv")
+sink("fit_Bdhn7.csv")
 contador=2    #Para W
 while (contador <=13){
-  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))   #Crea una variable para el titulo segun va corriendo el contador
-  Bdhn7W<-unlist(subset( tab_Bdis2, select= c(5)))           #Para la columna 2 = Bdhn1aW (correrx4)
+  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))  
+  Bdhn7W<-unlist(subset( tab_Bdis2, select= c(5)))           
   aux2<- unlist(subset( tab_Bdis2, select= c(contador+1)))
   plot(Bdhn7W~aux2, main=paste(versus))
   fit<-summary(fit<-lm(Bdhn7W~aux2));abline(fit,col="blue",lty=1, lwd=2)
   print(plot)
-  print(fit)                  #Permite que se imprima en pantalla el fit
-  contador = contador+1       #cambiar de columnas en el loop
+  print(fit)                 
+  contador = contador+1       
 }
 sink()
 
 ####################
 
 
-Bdhn1aD<-unlist(subset( tab_Bdis2, select= c(18)))           #Para la columna 2 = Bdhn1aW (correrx4)
+Bdhn1aD<-unlist(subset( tab_Bdis2, select= c(18)))           
 ProD<- unlist(subset( tab_Bdis2, select= c(25)))
 plot(Bdhn1aD~ProD, main=paste("proD"))
 fit<-summary(fit<-lm(Bdhn1aD~ProD));abline(fit,col="blue",lty=1, lwd=2)
 print(plot)
-print(fit)                  #Permite que se imprima en pantalla el fit
-
-
-
+print(fit)              
 
 
 #plot Bdhn1aD vs Bdhn1aD linear regression model (lm) and estimates
 
 contador=17  #Para D
 while (contador <=33){
-  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))   #Crea una variable para el titulo segun va corriendo el contador
-  Bdhn1aD<-unlist(subset( tab_Bdis2, select= c(20)))           #Para la columna var
+  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))   
+  Bdhn1aD<-unlist(subset( tab_Bdis2, select= c(20)))           
   aux2<- unlist(subset( tab_Bdis2, select= c(contador+1)))
   plot(Bdhn7D~aux2, main=paste(versus))
   fit<-summary(fit<-lm(Bdhn1aD~aux2));abline(fit,col="orange",lty=1, lwd=2)
-  print(fit)                  #Permite que se imprima en pantalla el fit
-  contador = contador+1      #cambiar de columnas en el loop
+  print(fit)                 
+  contador = contador+1      
 }
 
-####################################################################################################################
+
 
 # 3. wilcoxon pairwise test  #para ccada Bdhn en cada tratamiento y cada Bdhn x pheno
 
 contador=2  #Test wilcox
 while (contador <=32){
-  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))   #Crea una variable para el titulo segun va corriendo el contador
-  Bdhn1aW<-unlist(subset( tab_Bdis2, select= c(2)))           #Para la columna 2 = Bdhn1aW (correrx4)
+  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))   
+  Bdhn1aW<-unlist(subset( tab_Bdis2, select= c(2)))           
   aux2<- unlist(subset( tab_Bdis2, select= c(contador+1)))
   Wilcox<-wilcox.test( aux2,Bdhn1aW, paired=TRUE)
-  #png(paste("Wilcox_Bdhn1a", versus, ".png", sep = ""), width=955, height= 450)  ##Para imprimir en jpg en la carpeta directorio trabajo
+  png(paste("Wilcox_Bdhn1a", versus, ".png", sep = ""), width=955, height= 450)  
   plot(aux2, Bdhn1aW,
        pch = 16,
        main=versus)
   abline(0,1, col="blue", lwd=2)
   #dev.off()
   print(Wilcox)
-  contador = contador+1 #cambiar de columnas en el loop
+  contador = contador+1 
   }
 
-Bdhn1aW<-unlist(subset( tab_Bdis2, select= c(2)))           #Para la columna 2 = Bdhn1aW (correrx4)
+Bdhn1aW<-unlist(subset( tab_Bdis2, select= c(2)))           
 leaf_wc<- unlist(subset( tab_Bdis2, select= c(7)))
 Wilcox<-wilcox.test( leaf_wc,Bdhn1aw, paired=TRUE)
 
@@ -182,7 +158,7 @@ Wilcox<-wilcox.test( leaf_wc,Bdhn1aw, paired=TRUE)
 #Circles above and to the left of the blue one-to-one line indicate observations with a higher value
 
 
-####Test de correlacion ########
+#Correlation tests
 
 tab_Bdhns <- subset(tab_Bdis2, select=c(2:5, 17:20 ))
 tab_Bdhns
@@ -198,9 +174,6 @@ tab_Bdhns$Bdhn3D<-as.factor(tab_Bdhns$Bdhn3D)
 tab_Bdhns$Bdhn7D<-as.factor(tab_Bdhns$Bdhn7D)
 
 
-###########################
-#test de correlacion
-	#este bloque permite formatear los resultados en una tabla
 # Function to extract correlation coefficient and p-values
 
 #4.1 Correlacion test (Pearson, Spearman & Kendall)
@@ -253,8 +226,6 @@ ggscatter(tab_Bdhns, x = "Bdhn1aW", y = "Bdhn1aD",
 
 
 
-####################################################################################################################
-
 # multivariate correlation (https://rcompanion.org/handbook/I_10.html)
 
 if(!require(psych)){install.packages("psych")}
@@ -281,15 +252,14 @@ print(corr.test(Data.num,
           use    = "pairwise",
           method = "pearson",
           adjust = "none"),
-      short=FALSE)  #si uso print (corr(), short=FALSE) se imprimen los intervalos de confianza
-
+      short=FALSE)  
 
 chart.Correlation(Data.num,
                   method="pearson",
                   histogram=TRUE,
                   pch=16)
 
-##########
+
 
 tabB4<-subset(tab_all1, select= -c(2:8, 10 ))
 
