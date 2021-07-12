@@ -1,4 +1,4 @@
-# BrachyUMA21 ![](https://img.shields.io/badge/Code-Java&nbsp;11-informational?style=plastic&logo=Java&logoColor=white&color=2bbc8a)
+# Java programs ![](https://img.shields.io/badge/Code-Java&nbsp;11-informational?style=plastic&logo=Java&logoColor=white&color=2bbc8a)
 Short Java programs to deal with Brachypodium distachyon ecotypes. 
 
 This project contains three programs to extract information from data files extracted from [Phytozome](https://phytozome.jgi.doe.gov/pz/portal.html). In particular:
