@@ -80,17 +80,17 @@ library(viridis)
 
 
 #import data 
-climate<-read.csv(file="BdisLongLatAltClimateReduced.csv", h=T, sep=",", na.strings = "NA", stringsAsFactors=FALSE)
+climate<-read.csv(file="BdisLongLatAlt.csv", h=T, sep=";", na.strings = "NA", stringsAsFactors=FALSE)
 climate<-na.omit(climate)
 clim2 = climate
 clim2$ecotype<-as.factor(clim2$ecotype)
 
 names(clim2)
 clim2
-chart.Correlation(clim2 [,2:23], histogram=TRUE, pch=19)
+chart.Correlation(clim2 [,6:24], histogram=TRUE, pch=19)
 
 #PCA analysis
-pca_allBio <- dudi.pca(clim2[,2:23], scale = T, scan = FALSE, nf = 2)
+pca_allBio <- dudi.pca(clim2[,6:24], scale = T, scan = FALSE, nf = 2)
 screeplot(pca_allBio, main = "Screeplot - Eigenvalues")
 vars<-get_pca_var(pca_allBio)
 
@@ -98,34 +98,18 @@ vars<-get_pca_var(pca_allBio)
 fviz_pca_ind(pca_allBio, col.ind="contrib") +
   scale_color_gradient2(low="white", mid="blue",
                         high="red", midpoint=4)
-
-#biplot sin el grupo para ver la elipse (en funcion de label= var o ind)
-
-fviz_pca_biplot(pca_allBio, title ="PCA climate Biplot",label="var",addEllipses=TRUE, ellipse.level=0.95)+theme_minimal() 
-
-#habillage permite dibujar en funcion a grupos.Como no hay grupos el color es un gradiente. Label=var or ind
-fviz_pca_biplot(pca_allBio, title ="PCA climate Biplot",label="var",
-                habillage=clim2$ecotype, palette=palette(c("#8B008B", "#800080", "#68228B", "#5D478B", "#473C8B",
-                                                           "#0000EE" ,"#000080" ,"#27408B" ,"#1E90FF" ,"#36648B",
-                                                           "#4A708B" ,"#00BFFF" ,"#00688B", "#53868B" ,"#2F4F4F",
-                                                           "#00CDCD","#00FF7F", "#3CB371", "#00C957", "#00FF00", 
-                                                           "#66CD00","#6B8E23", "#EEEE00", "#EEC900" ,"#FFA500" ,
-                                                           "#FF9912" ,"#FE1700" ,"#FF7F24","#EE4000" ,"#EE3B3B" ,
-                                                           "#EE2C2C", "#7171C6")))+theme_minimal()  #Too few points to calculate an ellipse
-
 #plotting variables contribution
-fviz_pca_biplot(pca_allBio, title ="PCA climate variables", geom="point", pointsize = 1,  col.var="contrib")+
-   scale_color_gradient2(low="deepskyblue1", mid="blue", high= "firebrick2", midpoint=4)+theme_grey()   #There were 50 or more warnings (use warnings() to see the first 50)
+fviz_pca_biplot(pca_allBio, title ="PCA climate variables", geom="point", pointsize = 2,  col.var="contrib")+
+  scale_color_gradient2(low="deepskyblue1", mid="blue", high= "firebrick2", midpoint=2)+theme_grey()   #There were 50 or more warnings (use warnings() to see the first 50)
 
-fviz_pca_biplot(pca_allBio, title ="PCA climate variables", geom="point", pointsize = 3,col.ind="contrib")+
-  scale_color_gradient2(low="deepskyblue1", mid="blue", high= "firebrick2", midpoint=4)+theme_grey()   #There were 50 or more warnings (use warnings() to see the first 50)
 
 #summarize PCA1 climate by species
 PCA1_sum <-aggregate(pca_allBio$li[,1], by=list(clim2$ecotype), FUN=mean, na.rm=TRUE)
 PCA2_sum <-aggregate(pca_allBio$li[,2], by=list(clim2$ecotype), FUN=mean, na.rm=TRUE)
 
 
-
+PCA1_sum
+PCA2_sum
 
 #extract PCA1 values
 clim2$pca<-pca_allBio$li[,1]
