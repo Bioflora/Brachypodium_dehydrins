@@ -1,7 +1,7 @@
 This folder contains data and results of the cis-regulatory elements of de novo discovery analysis of 47 Bdhn gene promoters from four Brachypodium species using Rsat::plants.
 The starting dataset is in file "01_Bdhn_Brachypodium_promoters.fasta" containing 47 Bdhn promoter sequences with a length of -500bp to +200 bp around the initial of the 
 transcription site. 
-Analyses were performed by http://rsat.eead.csic.es/plants/ and the input file is BdhnBrachy_500_200.fasta
+Analyses were performed by http://rsat.eead.csic.es/plants/
 
 1. Peak-motif tool was used to detect over-represented motif at Bdhn promoter sequences.Brachypodium genomes from the species sampled were used as background.
     The analysis was run four time, using one genome background each time (B. distachyon Bd21 v3.0.46, B. stacei ABR114 v1.1.JGI, B. hybridum ABR113 v1.1.JGI, 
