@@ -9,10 +9,10 @@ Analyses were performed by http://rsat.eead.csic.es/plants/ and the input file i
     Significance of the motif discovery were evaluated using negative controls, consisting in 47 random promoter sequences from each background genome analysed with the same 
     conditions as the Bdhn promoters.
 
-  Results from the 4 analyses are in file "02_Brachypodium_Bdhn_Peak.tf.tf" . This file is the input in the next step.
+  Results from the 4 analyses are in file "02_Brachypodium_Bdhn_Peak.tf" . This file is the input in the next step.
 
 2. Matrix-clustering tool. Significance motif selected, based on their k-mer and number of sites were clustered to avoid redundant motif. 
-	The result is in file "final_cis_motifs.tf"
+	The result is in file "03_CRE_Bdhn.tf"
 
 3. Matrix-scan tool. Consensous motif from matrix-clustering result were scanned along the 47 Bdhn promoter sequences in order to locate potential CREs with a maximum threshold of
 9 nucleotides on the median length of the 3 selected motif.
