@@ -1,0 +1,6 @@
+This folder contains:
+  - Brachypodium.spp_Bdhn_MSAs_phylogenies: Alignments (Exon+intron) of each Bdhn gene for the four Brachypodium species
+    studied plus 5 outgropus species, used to describe Bdhns in Brachypodium and the phylogenetic analysis. 
+    
+  - B.distachyon_MSAs: Alignments (Exon+Intron) of Bdhn genes within 54 B. distachyon ecotypes, used in phylogentic and expression analysis.
+  
