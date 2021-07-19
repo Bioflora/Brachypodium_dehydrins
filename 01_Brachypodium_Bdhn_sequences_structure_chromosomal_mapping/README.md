@@ -8,8 +8,8 @@ This project contains three programs to extract information from data files extr
 
 These programs are not intented to simply execute them but, instead, the code must be modified slightly if any developer wants to adapt to their needs. In any case, you need to clone this project by using the next command from any directory of your own:
 ```
-git clone https://github.com/galvezuma/BrachyUMA21
-cd BrachyUMA21
+git clone https://github.com/Bioflora/Brachypodium_dehydrins
+cd Brachypodium_dehydrins/01_Brachypodium_Bdhn_sequences_structure_chromosomal_mapping
 ```
 In the next sections are explained how to work with them.
 
