@@ -107,7 +107,7 @@ sink()
 # 4. kRUSKALL AND DUNNE
 #create a variable joining the ecotype and treatment
 tab_all2$ET <- paste(tab_all2$ecotype, tab_all2$treatment)
-tab_all2$ET
+ET<-tab_all2$ET
 
 # 4.1 Summarize by group
 sink("summarize_taball2_ET.csv") 
