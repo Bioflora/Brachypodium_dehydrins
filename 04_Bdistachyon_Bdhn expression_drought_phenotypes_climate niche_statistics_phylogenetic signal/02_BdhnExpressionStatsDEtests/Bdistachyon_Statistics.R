@@ -112,7 +112,7 @@ tab_all2$ET
 # 4.1 Summarize by group
 sink("summarize_taball2_ET.csv") 
 contador=6
-while(contador<=6){
+while(contador<=22){
   Data1<- subset(tab_all2, select=c(22,contador))
   nombre<-unlist(subset( tab_all2,select=c(contador)))
   Data2 = mutate(Data1,
@@ -135,7 +135,7 @@ tab_allABS<- cbind(aux, delta13c_abs)
 
 
 contador=6
-while(contador<=6){
+while(contador<=22){
   Data1<- subset(tab_allABS, select=c(22,contador))
   tab_allABS$contador<-tab_allABS[,contador]
   hist<-histogram (~ tab_allABS$contador | tab_allABS$ecotype,
@@ -155,7 +155,7 @@ group = factor(ET, levels=unique(ET))
 #4.2.1 Performing Kruskall and Dunn test in one step  
 
 contador= 6
-while(contador<=6){
+while(contador<=22){
   tab_allABS$contador<-tab_allABS[,contador]
   Krus<-kruskal.test(tab_allABS$contador, group) 
   Dunn<-posthoc.kruskal.dunn.test(tab_allABS$contador, group, data = tab_allABS, p.adjust="BH") #Dunn-test
@@ -169,7 +169,7 @@ while(contador<=6){
 # 4.3. Pairwise de Wilcox, followed by Values tab, fulltab and multicomlletter for groups
 sink("wilcox.pairwise_multlet.csv")
 contador=6
-while(contador<=6){
+while(contador<=22){
   tab_allABS$contador<-tab_allABS[,contador]  
   PT3 = pairwise.wilcox.test(tab_allABS$contador,
                              group,
@@ -194,7 +194,7 @@ sink()
 
 #4.4. Analysis of lm, anova and sum the Variance Table (plot: plot_lm_an_tuk)
 contador=6
-while(contador<=6){
+while(contador<=22){
   tab_allABS$contador<-tab_allABS[,contador]
   model = lm(tab_allABS$contador ~ group,
              data=tab_allABS)
