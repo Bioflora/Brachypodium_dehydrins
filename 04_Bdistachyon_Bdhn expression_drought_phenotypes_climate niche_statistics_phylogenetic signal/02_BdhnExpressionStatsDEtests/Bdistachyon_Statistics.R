@@ -67,7 +67,7 @@ sink()
 #3.2. Wilcoxon pairwise test for each Bdhn by treatment and each Bdhn and phenotypic trait
 
 contador=2  
-while (contador <=32){
+while (contador <=16){
   versus<-colnames(subset( tab_all3,select=c(contador+1)))   
   Bdhn1aW<-unlist(subset( tab_all3, select= c(2)))         
   aux2<- unlist(subset( tab_all3, select= c(contador+1)))
