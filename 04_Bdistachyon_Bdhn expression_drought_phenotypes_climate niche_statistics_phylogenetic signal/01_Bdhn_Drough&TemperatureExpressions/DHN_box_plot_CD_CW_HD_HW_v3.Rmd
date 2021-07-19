@@ -1,0 +1,118 @@
+---
+title: "DHN_box_plot CD, CW, HD, HW v3"
+author: "Ruben_sancho"
+date: "02/06/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r packages}
+getwd()
+setwd("C:/Users/Rubén/Desktop/Post_doc_Bioflora/03_DHN/DHN_from_sleuth_Ruben/")
+library(readxl)
+library(ggplot2)
+library(ggsignif)
+library(ggpubr)
+```
+
+```{r Bdhn1a}
+
+Bdhn1a <- read_excel("Bdhn1a_CD_CW_HD_HW_v3.xlsx")
+
+# Plot in png
+
+pdf("Bdhn1a_CD_CW_HD_HW_v3.pdf")
+
+ggplot(data = Bdhn1a, aes(x=Treatment, y=TPM)) + geom_boxplot(aes(fill=Treatment)) + ggtitle("Bdhn1a") + theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_fill_manual(values=c("green3", "deepskyblue2", "red1", "violetred1")) +
+  geom_signif(test="wilcox.test",comparisons = list(c("CD","CW"), c("CD","HD"), c("CD","HW"), c("CW","HD"), c("CW","HW"), c("HD","HW")), y_position = c(1400, 1500, 1600, 1000, 1100, 900), map_signif_level=TRUE)
+
+dev.off()
+
+```
+
+```{r Bdhn2}
+
+Bdhn2 <- read_excel("Bdhn2_CD_CW_HD_HW_v3.xlsx")
+
+# Plot in png
+
+pdf("Bdhn2_CD_CW_HD_HW_v3.pdf")
+
+ggplot(data = Bdhn2, aes(x=Treatment, y=TPM)) + geom_boxplot(aes(fill=Treatment)) + ggtitle("Bdhn2") + theme(plot.title = element_text(hjust = 0.5)) + scale_fill_manual(values=c("green3", "deepskyblue2", "red1", "violetred1")) +
+  geom_signif(test="wilcox.test",comparisons = list(c("CD","CW"), c("CD","HD"), c("CD","HW"), c("CW","HD"), c("CW","HW"), c("HD","HW")), y_position = c(1500, 1630, 1750, 800, 1150, 900), map_signif_level=TRUE)
+
+dev.off()
+
+```
+
+
+
+```{r Bdhn3}
+
+Bdhn3 <- read_excel("Bdhn3_CD_CW_HD_HW_v3.xlsx")
+
+# Plot in png
+
+pdf("Bdhn3_CD_CW_HD_HW_v3.pdf")
+
+ggplot(data = Bdhn3, aes(x=Treatment, y=TPM)) + geom_boxplot(aes(fill=Treatment)) + ggtitle("Bdhn3") + theme(plot.title = element_text(hjust = 0.5)) + scale_fill_manual(values=c("green3", "deepskyblue2", "red1", "violetred1")) +
+  geom_signif(test="wilcox.test",comparisons = list(c("CD","CW"), c("CD","HD"), c("CD","HW"), c("CW","HD"), c("CW","HW"), c("HD","HW")), y_position = c(2800, 4000, 5000, 2300, 3200, 2800), map_signif_level=TRUE)
+
+dev.off()
+
+```
+
+```{r Bdhn7}
+
+Bdhn7 <- read_excel("Bdhn7_CD_CW_HD_HW_v3.xlsx")
+
+# Plot in png
+
+pdf("Bdhn7_CD_CW_HD_HW_v3.pdf")
+
+ggplot(data = Bdhn7, aes(x=Treatment, y=TPM)) + geom_boxplot(aes(fill=Treatment)) + ggtitle("Bdhn7") + theme(plot.title = element_text(hjust = 0.5)) + scale_fill_manual(values=c("green3", "deepskyblue2", "red1", "violetred1")) +
+  geom_signif(test="wilcox.test",comparisons = list(c("CD","CW"), c("CD","HD"), c("CD","HW"), c("CW","HD"), c("CW","HW"), c("HD","HW")), y_position = c(1300, 1500, 1700, 700, 1000, 800), map_signif_level=TRUE)
+
+dev.off()
+
+```
+```{r All_Bdhn_CD_CW_HD_HW}
+
+# Load data
+
+Bdhn1a <- read_excel("Bdhn1a_CD_CW_HD_HW_v3.xlsx")
+Bdhn2 <- read_excel("Bdhn2_CD_CW_HD_HW_v3.xlsx")
+Bdhn3 <- read_excel("Bdhn3_CD_CW_HD_HW_v3.xlsx")
+Bdhn7 <- read_excel("Bdhn7_CD_CW_HD_HW_v3.xlsx")
+
+# Plot in png
+
+png("All_Bdhn_CD_CW_HD_HW_v3.png", width=600, height=600)
+
+Bdhn1a_CD_CW_HD_HW <- ggplot(data = Bdhn1a, aes(x=Treatment, y=TPM)) + geom_boxplot(aes(fill=Treatment)) + ggtitle("Bdhn1a") + theme(plot.title = element_text(hjust = 0.5)) + scale_fill_manual(values=c("green3", "deepskyblue2", "red1", "violetred1")) + 
+geom_signif(test="wilcox.test",comparisons = list(c("CD","CW"), c("CD","HD"), c("CD","HW"), c("CW","HD"), c("CW","HW"), c("HD","HW")), y_position = c(1400, 1500, 1600, 1000, 1100, 900), map_signif_level=TRUE)
+
+Bdhn2_CD_CW_HD_HW <- ggplot(data = Bdhn2, aes(x=Treatment, y=TPM)) + geom_boxplot(aes(fill=Treatment)) + ggtitle("Bdhn2") + theme(plot.title = element_text(hjust = 0.5)) + scale_fill_manual(values=c("green3", "deepskyblue2", "red1", "violetred1")) + 
+geom_signif(test="wilcox.test",comparisons = list(c("CD","CW"), c("CD","HD"), c("CD","HW"), c("CW","HD"), c("CW","HW"), c("HD","HW")), y_position = c(1500, 1630, 1750, 800, 1150, 900), map_signif_level=TRUE)
+
+Bdhn3_CD_CW_HD_HW <- ggplot(data = Bdhn3, aes(x=Treatment, y=TPM)) + geom_boxplot(aes(fill=Treatment)) + ggtitle("Bdhn3") + theme(plot.title = element_text(hjust = 0.5)) + scale_fill_manual(values=c("green3", "deepskyblue2", "red1", "violetred1")) + 
+geom_signif(test="wilcox.test",comparisons = list(c("CD","CW"), c("CD","HD"), c("CD","HW"), c("CW","HD"), c("CW","HW"), c("HD","HW")), y_position = c(2800, 4000, 5000, 2300, 3200, 2800), map_signif_level=TRUE)
+
+Bdhn7_CD_CW_HD_HW <- ggplot(data = Bdhn7, aes(x=Treatment, y=TPM)) + geom_boxplot(aes(fill=Treatment)) + ggtitle("Bdhn7") + theme(plot.title = element_text(hjust = 0.5)) + scale_fill_manual(values=c("green3", "deepskyblue2", "red1", "violetred1")) + 
+geom_signif(test="wilcox.test",comparisons = list(c("CD","CW"), c("CD","HD"), c("CD","HW"), c("CW","HD"), c("CW","HW"), c("HD","HW")), y_position = c(1300, 1500, 1700, 700, 1000, 800), map_signif_level=TRUE)
+
+ggarrange(Bdhn1a_CD_CW_HD_HW, Bdhn2_CD_CW_HD_HW, Bdhn3_CD_CW_HD_HW, Bdhn7_CD_CW_HD_HW, ncol = 2, nrow = 2, common.legend = TRUE, legend="bottom")
+
+
+dev.off()
+
+```
