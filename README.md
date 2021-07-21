@@ -117,7 +117,7 @@ This folder contains:
 	the *B. distachyon* Bdhn tree shown in Supplementary Fig. 5Sa.
 
 ## Bdistachyon_Bdhn expression_drought_phenotypes_climate niche_statistics_phylogenetic  signal 
-This folder contains five subfolders with input files and Rscripts used in different analyses of Bdhn expression, drought-related phenotypic traits, climate niche data and phylogenetic signals in B. distachyon lines. 
+This folder contains five subfolders with input files and Rscripts used in different analyses of Bdhn expression, drought-related phenotypic traits, climate niche data and phylogenetic signals in *B. distachyon* lines. 
 -	 01_Bdhn_Drough&TemperatureExpressions
 This folder contains 12 input files of Bdhn1a, Bdhn2, Bdhn3 and Bdhn7 gene expressions under drought (watered-W vs dry-D) and temperature (cold-C vs hot-H) conditions and their combination (CD, CW, HD, HW) across 32 ecotypes of *B. distachyon* and 3 R scrips used to compute boxplots and pairwise Wilcoxon tests between conditions in combined and separate treatments. The 3 output files All_Bdhn_CD_CW_HD_HW_v3.png, All_Bdhn_D_W_v3.png and All_Bdhn_C_H_v3.png showing the results of these analyses correspond to Supplementary Figs S7a,b, and c, respectively. 
 -	02_BdhnExpressionStatsDEtests
