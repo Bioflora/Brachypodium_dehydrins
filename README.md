@@ -97,18 +97,7 @@ This will display on console a trace of the motives found in each genes processe
 - 02_Brachypodium_Bdhn_Peak.tf: output of Peak-motif in TRANSFAC format.
 - 03_CRE_Bdhn.tf: final clusters ID from RSAT matrix-clustering
 - 04_Brachypodium_Bdhn_scan: gff3 files from RSAT matrix-scan
-- README: detailed description of all analyses carried to detect Cis-Regulatory Elements (CREs) within Bdhn promoter sequences:
-This folder contains data and results of the de novo discovery of CRES across 47 Bdhn gene promoters from four Brachypodium species using RSAT::plants.
-The original input dataset is file "01_Bdhn_Brachypodium_promoters.fasta" which contains 47 Bdhn promoter sequences with a length of -500bp to +200 bp around the TTS. 
-Analyses were performed at http://rsat.eead.csic.es/plants/
-1. Peak-motif tool was used to detect over-represented motifs at each Bdhn promoter sequence. Brachypodium genomes from each sampled species were used to compute background oligonucleotides frequencies.
-    The analysis was run four times, using the corresponding background genome each time (B. distachyon Bd21 v3.0.46, B. stacei ABR114 v1.1.JGI, B. hybridum ABR113 v1.1.JGI, B. sylvaticum Ain1v1.1.JGI) 
-    The significance of the discovered motifs was evaluated using negative controls, consisting in 47 promoter sequences of randomly selected genes from each background genome, analysed under the same conditions as the Bdhn promoters.
-  Results from the four analyses are in file "02_Brachypodium_Bdhn_Peak.tf". This file is the input file for the next step.
-2. Matrix-clustering tool. Significant motifs were selected based on (i) their k-mer significance, and (ii) number of sites hit of each motif and promoter.  Those motifs were clustered to avoid redundant motifs. 
-	The results of the analysis are in file "03_CRE_Bdhn.tf". Three significant motifs were selected (BES1/BZR1, MYB124, ZAT). This file is the input file for the next step, Matrix-scan. 
-3. Matrix-scan tool. Consensus motifs resulting from the matrix-clustering analysis were scanned along the 47 Bdhn promoter sequences in order to locate potential CREs with a maximum threshold of 70% on the median length of each of the three selected motifs.
-Results from this analysis are included in GFF3 files for each Brachypodium species in the folder 04_Brachypodium_Bdhn_scan. Motif frecuency results are shown in Table 3.
+- README file describing how to carry this analysis
 
 ## Brachypodium_Bdhn_MSAs_phylogenies
 This folder contains the alignments of the 10 Bdhn genes retrieved from the genomes of 4 Brachypodium species (*B.distachyon*, B.stacei, B.hybridum* subgenomes D and S, and *B. sylvaticum*) plus 5 outgroup species (*A. tauschii, H. vulgare, S. bicolor, O. sativa* , and *Z. mays*). Additionally, it also contains the alignments of the 10 Bdhn genes retrieved from 54 *B. distachyon* ecotypes. 
