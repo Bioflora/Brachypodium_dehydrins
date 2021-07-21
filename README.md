@@ -60,7 +60,7 @@ cd ..
 java -cp ./src es.uma.html.GenerateSVG
 ```
 This will display on console a trace of the genes processed and, in addition, a file `result.html` will be generated in the root directory; the order of the 54 ecotypes is also give by the file `datafiles/Order.txt`. Such a file has the next appearance:
-![Dehydrins](images/DHN_Ecotypes.png?raw=true "Dehydrins")
+![Dehydrins](01_Brachypodium_Bdhn_sequences_structure_chromosomal_mapping/images/DHN_Ecotypes.png?raw=true "Dehydrins")
 ## es.uma.motif.HTMLDecorator
 This is a more general program very useful to colour motives in fasta files and to show the results in HTML. As an example, a file `datafiles/all_varieties_DHN_peptide.fasta` is provided so you could run it from scratch. It searches for 6 different motives, as can be seen in the next lines of the code:
 ```Java
@@ -89,7 +89,7 @@ cd ..
 java -cp ./src es.uma.motif.HTMLDecorator
 ```
 This will display on console a trace of the motives found in each genes processed and, in addition, a file `DHNSegments.html` will be generated in the root directory. Such a file has the next appearance:
-![Dehydrins](images/DHN_Segments.png?raw=true "Dehydrins")
+![Dehydrins](01_Brachypodium_Bdhn_sequences_structure_chromosomal_mapping/images/DHN_Segments.png?raw=true "Dehydrins")
 
 ## Brachypodium_Bdhn_genes_CREs
 - 01_Bdhn_Brachypodium_promoters.fasta: Bdhn promoter sequences, with a window of  -500bp to +200pb around the inferred Transcription Start Site (TSS).
