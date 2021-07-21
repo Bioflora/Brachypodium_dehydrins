@@ -3,8 +3,8 @@
 
 ## Table of Contents
 * [Brachypodium_Bdhn_sequences_structure_chromosomal mapping](#brachypodium_bdhn_sequences_structure_chromosomal-mapping-)
-* [Brachypodium_Bdhn_genes_CREs](#CREs)
-* [Brachypodium_Bdhn_MSAs_phylogenies_expression](#MSA)
+* [Brachypodium_Bdhn_genes_CREs](#brachypodium_bdhn_genes_cres)
+* [Brachypodium_Bdhn_MSAs_phylogenies_expression](#brachypodium_bdhn_msas_phylogenies_expression)
 * [Bdistachyon_Bdhn expression_drought_phenotypes_climate niche_statistics_phylogenetic signal](#Rscript)
 * [Supplementary_Data](#Supplementary_Data)
 
