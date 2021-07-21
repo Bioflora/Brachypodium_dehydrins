@@ -2,7 +2,7 @@
 > This repository contains data and instructions to run JAVA programs and scripts used in different analyses of Brachypodium dehydrins (Bdhn) data and other phenotypic and climate niche data included in the paper "Evolution and functional dynamics of dehydrins in model Brachypodium grasses" coauthored by Maria Ángeles Decena, Sergio Galvez-Rojas, Federico Agostini, Rubén Sancho, Bruno Contreras-Moreira, David L. Des Marais, Pilar Hernández and Pilar Catalán.
 
 ## Table of Contents
-* [Brachypodium_Bdhn_sequences_structure_chromosomal mapping](#Java programs)
+* [Brachypodium_Bdhn_sequences_structure_chromosomal_mapping](#Java_programs)
 * [Brachypodium_Bdhn_genes_CREs](#CREs)
 * [Brachypodium_Bdhn_MSAs_phylogenies_expression](#MSA)
 * [Bdistachyon_Bdhn expression_drought_phenotypes_climate niche_statistics_phylogenetic signal](#Rscript)
@@ -110,18 +110,25 @@ Analyses were performed at http://rsat.eead.csic.es/plants/
 3. Matrix-scan tool. Consensus motifs resulting from the matrix-clustering analysis were scanned along the 47 Bdhn promoter sequences in order to locate potential CREs with a maximum threshold of 70% on the median length of each of the three selected motifs.
 Results from this analysis are included in GFF3 files for each Brachypodium species in the folder 04_Brachypodium_Bdhn_scan. Motif frecuency results are shown in Table 3.
 
-## Brachypodium_Bdhn_MSAs_phylogenies:
+## Brachypodium_Bdhn_MSAs_phylogenies
 This folder contains the alignments of the 10 Bdhn genes retrieved from the genomes of 4 Brachypodium species (*B.distachyon*, B.stacei, B.hybridum* subgenomes D and S, and *B. sylvaticum*) plus 5 outgroup species (*A. tauschii, H. vulgare, S. bicolor, O. sativa* , and *Z. mays*). Additionally, it also contains the alignments of the 10 Bdhn genes retrieved from 54 *B. distachyon* ecotypes. 
 These files were used in the phylogenetic analyses of the dehydrin genes. 
 - READMe file: description of multiple sequence alignment (MSA) folders.
 This folder contains:
-1.	Brachypodium.spp_Bdhn_MSAs_phylogenies: a folder containing a global Bdhn alignment of the 10 Bdhn genes (exon+intron sequences) for the 4 Brachypodium species studied plus 5 outgropus species and separate MSAs for each Bdhn gene. These data sets were used to describe the Bdhn genes in Brachypodium and to perform the phylogenetic analysis. The global Bdhn alignment was used to compute the Brachypodium Bdhn ML tree shown in Fig. 3. 
-Additionally, there is another folder (Brachypodium_Bdhn_Annotation)  containing annotation files for each Bdhn gene.
-2.	B.distachyon_MSAs: a folder containing alignments (exon+intron sequences) of each of the 10 Bdhn genes for the 54 *B. distachyon* ecotypes plus outgroup *B.stacei*. These files were used to perform phylogenetic analyses. The resulting Bdhn ML gene trees are shown in Supplementary Fig. S4. 
-Additionally, there is another folder (Bdistachyon_Bdhn_Anotations)  containing annotation files for each Bdhn gene.
-3.	B.distachyon_Bdhns_concatenated_MSA.fna: An aligment of 6 Bdhn genes (*Bdhn1, Bdhn2, Bdhn3, Bdhn6, Bdhn7, Bdhn8*) that showed a congruent topology for the 54 *B.distachyon* ecotypes. This file was used to compute the *B. distachyon* Bdhn tree shown in Supplementary Fig. 5Sa.
+1.	Brachypodium.spp_Bdhn_MSAs_phylogenies: 
+	a folder containing a global Bdhn alignment of the 10 Bdhn genes (exon+intron sequences) for the 4 Brachypodium species studied plus 5 outgropus species and separate
+	MSAs for each Bdhn gene. These data sets were used to describe the Bdhn genes in Brachypodium and to perform the phylogenetic analysis. The global Bdhn alignment was
+	used to compute the Brachypodium Bdhn ML tree shown in Fig. 3. 
+	Additionally, there is another folder (Brachypodium_Bdhn_Annotation)  containing annotation files for each Bdhn gene.
+2.	B.distachyon_MSAs:
+	a folder containing alignments (exon+intron sequences) of each of the 10 Bdhn genes for the 54 *B. distachyon* ecotypes plus outgroup *B.stacei*. These files were used
+	to perform phylogenetic analyses. The resulting Bdhn ML gene trees are shown in Supplementary Fig. S4. 
+	Additionally, there is another folder (Bdistachyon_Bdhn_Anotations)  containing annotation files for each Bdhn gene and a B.distachyon_Bdhns_concatenated_MSA.fna, an
+	aligment of 6 Bdhn genes (*Bdhn1, Bdhn2, Bdhn3, Bdhn6, Bdhn7, Bdhn8*) that showed a congruent topology for the 54 *B.distachyon* ecotypes. This file was used to compute
+	the *B. distachyon* Bdhn tree shown in Supplementary Fig. 5Sa.
 
-## Bdistachyon_Bdhn expression_drought_phenotypes_climate niche_statistics_phylogenetic  signal: This folder contains five subfolders with input files and Rscripts used in different analyses of Bdhn expression, drought-related phenotypic traits, climate niche data and phylogenetic signals in B. distachyon lines. 
+## Bdistachyon_Bdhn expression_drought_phenotypes_climate niche_statistics_phylogenetic  signal 
+This folder contains five subfolders with input files and Rscripts used in different analyses of Bdhn expression, drought-related phenotypic traits, climate niche data and phylogenetic signals in B. distachyon lines. 
 -	 #01_Bdhn_Drough&TemperatureExpressions
 This folder contains 12 input files of Bdhn1a, Bdhn2, Bdhn3 and Bdhn7 gene expressions under drought (watered-W vs dry-D) and temperature (cold-C vs hot-H) conditions and their combination (CD, CW, HD, HW) across 32 ecotypes of *B. distachyon* and 3 R scrips used to compute boxplots and pairwise Wilcoxon tests between conditions in combined and separate treatments. The 3 output files All_Bdhn_CD_CW_HD_HW_v3.png, All_Bdhn_D_W_v3.png and All_Bdhn_C_H_v3.png showing the results of these analyses correspond to Supplementary Figs S7a,b, and c, respectively. 
 -	#02_BdhnExpressionStatsDEtests
