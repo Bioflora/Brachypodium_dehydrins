@@ -2,15 +2,14 @@
 > This repository contains data and instructions to run JAVA programs and scripts used in different analyses of Brachypodium dehydrins (Bdhn) data and other phenotypic and climate niche data included in the paper *"Evolution and functional dynamics of dehydrins in model Brachypodium grasses"* coauthored by Maria Ángeles Decena, Sergio Galvez-Rojas, Federico Agostini, Rubén Sancho, Bruno Contreras-Moreira, David L. Des Marais, Pilar Hernández and Pilar Catalán.
 
 ## Table of Contents
-* [Brachypodium_Bdhn_sequences_structure_chromosomal_mapping](#Java_programs)
+* [Brachypodium_Bdhn_sequences_structure_chromosomal mapping](#brachypodium_Bdhn_sequences_structure_chromosomal_mapping)
 * [Brachypodium_Bdhn_genes_CREs](#CREs)
 * [Brachypodium_Bdhn_MSAs_phylogenies_expression](#MSA)
 * [Bdistachyon_Bdhn expression_drought_phenotypes_climate niche_statistics_phylogenetic signal](#Rscript)
 * [Supplementary_Data](#Supplementary_Data)
 
 
-## Brachypodium_Bdhn_sequences_structure_chromosomal mapping: 
-# Java programs ![](https://img.shields.io/badge/Code-Java&nbsp;11-informational?style=plastic&logo=Java&logoColor=white&color=2bbc8a)
+## Brachypodium_Bdhn_sequences_structure_chromosomal mapping ![](https://img.shields.io/badge/Code-Java&nbsp;11-informational?style=plastic&logo=Java&logoColor=white&color=2bbc8a)
 Short Java programs to deal with *Brachypodium distachyon* ecotypes. 
 This project contains three programs to extract information from data files extracted from [Phytozome](https://phytozome.jgi.doe.gov/pz/portal.html). In particular:
 * **es.uma.keyword.LookForKeyword**: Allows iterating through the fasta and gff3 files associated to several species and extract information related to a family of genes. Before working with this package, you have to download some files from Phytozome, configure some lines of source Java files and recompile. The program can be executed as is by means of the sample files already provided in the folder `"genomes/Phytozome/PhytozomeV13"`.
