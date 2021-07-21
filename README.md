@@ -5,8 +5,8 @@
 * [Brachypodium_Bdhn_sequences_structure_chromosomal mapping](#brachypodium_bdhn_sequences_structure_chromosomal-mapping-)
 * [Brachypodium_Bdhn_genes_CREs](#brachypodium_bdhn_genes_cres)
 * [Brachypodium_Bdhn_MSAs_phylogenies](#brachypodium_bdhn_msas_phylogenies)
-* [Bdistachyon_Bdhn expression_drought_phenotypes_climate niche_statistics_phylogenetic signal](#Rscript)
-* [Supplementary_Data](#Supplementary_Data)
+* [Bdistachyon_Bdhn expression_drought_phenotypes_climate niche_statistics_phylogenetic signal](#bdistachyon_bdhn-expression_drought_phenotypes_climate-niche_statistics_phylogenetic--signal)
+* [Supplementary_Data](#supplementary_data)
 
 
 ## Brachypodium_Bdhn_sequences_structure_chromosomal mapping ![](https://img.shields.io/badge/Code-Java&nbsp;11-informational?style=plastic&logo=Java&logoColor=white&color=2bbc8a)
