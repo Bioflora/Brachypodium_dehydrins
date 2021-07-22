@@ -171,7 +171,8 @@ while(contador<=22){
 # 4.3. Pairwise de Wilcox, followed by Values tab, fulltab and multicomlletter for groups
 sink("wilcox.pairwise_multlet.csv")
 contador=6
-while(contador<=21){
+while(contador<=22){
+  if (contador == 21) { contador=contador+1; next }
   tab_allABS$contador<-tab_allABS[,contador]  
   PT3 = pairwise.wilcox.test(tab_allABS$contador,
                              group,
