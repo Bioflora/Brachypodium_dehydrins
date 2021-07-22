@@ -19,7 +19,7 @@ library(PMCMR)
 library(PMCMRplus)
 library(ggplot2)
 library(ggsignif)
-library(tidyverse)
+
 
 #import data as table
 tab_BrachyTPM_Bdhn<- read.csv(file="Bdistachyon_Bdhn_TPM_W&D.csv", h=T, sep=",", na.strings = "NA", stringsAsFactors=FALSE) 
@@ -260,11 +260,11 @@ my_colors <- c(
 b <- boxplot(dataD$Bdhn1a ~ dataD$ecotype , ylim=c(min(dataD$Bdhn1a) , 1.1*max(dataD$Bdhn1a)),
              las=2, col=my_colors[as.numeric(LABELS[,1])] , ylab="" , main="Bdhn1a")
 
-over <- 0.02*max( b$stats[nrow(b$stats),] )
+over <- 0.2*max( b$stats[nrow(b$stats),] )
 
 #Boxplots with Tukey letters
-text( c(1:nlevels(dataD$ecotype)) , b$stats[nrow(b$stats),]+over , LABELS[,1]  , col=my_colors[as.numeric(LABELS[,1])] )
 
+text( c(1:nlevels(factor(dataD$ecotype))) , b$stats[nrow(b$stats),]+over , LABELS[,1]  , col=my_colors[as.numeric(LABELS[,1])] )
 
 
 #4.5.2 Watered
@@ -303,7 +303,7 @@ my_colors <- c(
 )
 b <- boxplot(dataW$Bdhn1a ~ dataW$ecotype , ylim=c(min(dataW$Bdhn1a) , 1.1*max(dataW$Bdhn1a)) ,las=2, col=my_colors[as.numeric(LABELS[,1])] , ylab="%" , main="cn")
 
-over <- 0.02*max( b$stats[nrow(b$stats),] )
+over <- 0.2*max( b$stats[nrow(b$stats),] )
 
 #Boxplots with Tukey letters
-text( c(1:nlevels(dataW$ecotype)) , b$stats[nrow(b$stats),]+over , LABELS[,1]  , col=my_colors[as.numeric(LABELS[,1])] )
+text( c(1:nlevels(factor(dataD$ecotype))) , b$stats[nrow(b$stats),]+over , LABELS[,1]  , col=my_colors[as.numeric(LABELS[,1])] )
