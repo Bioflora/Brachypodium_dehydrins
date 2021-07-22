@@ -197,7 +197,8 @@ sink()
 
 #4.4. Analysis of lm, anova and sum the Variance Table (plot: plot_lm_an_tuk)
 contador=6
-while(contador<=21){
+while(contador<=22){
+  if (contador == 21) { contador=contador+1; next }
   tab_allABS$contador<-tab_allABS[,contador]
   model = lm(tab_allABS$contador ~ group,
              data=tab_allABS)
@@ -276,13 +277,6 @@ TUKEY <- TukeyHSD(x=ANOVA, 'dataW$ecotype', conf.level=0.95)
 plot(TUKEY , las=1 , col="brown")
 
 #Creating labels
-generate_label_df <- function(TUKEY, variable){
-  Tukey.levels <- TUKEY[[variable]][,4] 
-  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'], stringsAsFactors = TRUE)
-  Tukey.labels$ecotype=rownames(Tukey.labels)
-  Tukey.labels=Tukey.labels[order(Tukey.labels$ecotype) , ]
-  return(Tukey.labels)
-}
 LABELS <- generate_label_df(TUKEY , "dataW$ecotype")
 my_colors <- c( 
   rgb(15, 42, 159, maxColorValue = 255), 
