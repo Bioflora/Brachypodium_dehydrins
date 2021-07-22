@@ -37,18 +37,18 @@ hist(log(tab_Bdis2$rmrD+1))
 
 ##2.1 lm for each Bdhn  GENERAL (the loop must be run for each variable)
 sink("lm_fit_Bdhn1a.csv")
-contador2=5           #Must be change to run the loop for each variable
-while(contador2<21){
-  contador=6              
-    while (contador <=22){
-    aux_tab<-subset(tab_all2, select=-c(10)) #delete treatment column.
-    versus<-colnames(subset( aux_tab,select=c(contador+1)))  
-    versus1<-colnames(subset(aux_tab, select=c(contador2+1)))
-    aux1<-unlist(subset( aux_tab, select= c(contador2+1)))
-    aux2<- unlist(subset( aux_tab, select= c(contador+1)))
+aux_tab<-subset(tab_all2, select=-c(10)) #delete treatment column.
+contador2=6           #Must be change to run the loop for each variable
+while(contador2<=9){
+  contador=contador2+1              
+    while (contador <=21){  
+    versus<-colnames(subset( aux_tab,select=c(contador)))  
+    versus1<-colnames(subset(aux_tab, select=c(contador2)))
+    aux1<-unlist(subset( aux_tab, select= c(contador2)))
+    aux2<- unlist(subset( aux_tab, select= c(contador)))
     plot(aux1~aux2, main=paste(versus), ylab=versus1)
     fit<-summary(fit<-lm(aux1~aux2));abline(fit,col="darkgreen",lty=1, lwd=2)
-    print(fit)                  
+    print(fit)    
     contador = contador+1      
     }
   contador2=contador2+1
