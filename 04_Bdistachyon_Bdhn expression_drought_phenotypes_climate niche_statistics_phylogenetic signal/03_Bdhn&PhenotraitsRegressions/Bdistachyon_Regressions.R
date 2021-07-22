@@ -61,53 +61,42 @@ sink()
   #plot Bdhn1aW vs Bdhn1aD linear regression model (lm) and estimates
 
 #Watered loop
-sink("fit_Bdhn1aW.csv")
-contador=2    
-while (contador <=13){
-  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))   
-  Bdhn7W<-unlist(subset( tab_Bdis2, select= c(5)))           #Change name
-  aux2<- unlist(subset( tab_Bdis2, select= c(contador+1)))
-  plot(Bdhn7W~aux2, main=paste(versus))
-  fit<-summary(fit<-lm(Bdhn7W~aux2));abline(fit,col="blue",lty=1, lwd=2)
-  print(plot)
-  print(fit)                  
-  contador = contador+1       
+for (bdhn in c(2, 3, 4, 5)) {
+	sink(paste0("fit_", colnames(tab_Bdis2)[bdhn], ".csv"))
+	contador = bdhn+1 
+	while (contador <=17){
+	  versus<-colnames(subset( tab_Bdis2,select=c(contador)))   
+	  dehydrin<-unlist(subset( tab_Bdis2, select= c(bdhn)))           #Change name
+	  aux2<- unlist(subset( tab_Bdis2, select= c(contador)))
+	  plot(dehydrin~aux2, main=paste(versus))
+	  fit<-summary(fit<-lm(dehydrin~aux2));abline(fit,col="blue",lty=1, lwd=2)
+	  print(plot)
+	  print(fit)                  
+	  contador = contador+1       
+	}
+	sink()
 }
-sink()
 
 
 #Drought loop 
-sink("fit_Bdhn1aD.csv")
-contador=18                #must be incremented and run the loop 4 times.
-while (contador <=33){
-  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))   
-  Bdhn1aD<-unlist(subset( tab_Bdis2, select= c(20)))          #Change name
-  aux2<- unlist(subset( tab_Bdis2, select= c(contador+1)))
-  plot(Bdhn1aD~aux2, main=paste(versus))
-  fit<-summary(fit<-lm(Bdhn1aD~aux2));abline(fit,col="orange",lty=1, lwd=2)
-  print(fit)                  
-  contador = contador+1      
+for (bdhn in c(18, 19, 20, 21)) {
+	sink(paste0("fit_", colnames(tab_Bdis2)[bdhn], ".csv"))
+	contador = bdhn+1 
+	while (contador <=33){
+	  versus<-colnames(subset( tab_Bdis2,select=c(contador)))   
+	  dehydrin<-unlist(subset( tab_Bdis2, select= c(bdhn)))           #Change name
+	  aux2<- unlist(subset( tab_Bdis2, select= c(contador)))
+	  plot(dehydrin~aux2, main=paste(versus))
+	  fit<-summary(fit<-lm(dehydrin~aux2));abline(fit,col="blue",lty=1, lwd=2)
+	  print(plot)
+	  print(fit)                  
+	  contador = contador+1       
+	}
+	sink()
 }
-sink()
 
-#3. Wilcoxon pairwise test for each Bdhn by treatment and each Bdhn and phenotypic trait
 
-contador=2  
-while (contador <=32){
-  versus<-colnames(subset( tab_Bdis2,select=c(contador+1)))   
-  Bdhn1aW<-unlist(subset( tab_Bdis2, select= c(2)))         
-  aux2<- unlist(subset( tab_Bdis2, select= c(contador+1)))
-  Wilcox<-wilcox.test( aux2,Bdhn1aW, paired=TRUE)
-  png(paste("Wilcox_Bdhn1a", versus, ".png", sep = ""), width=955, height= 450)  
-  plot(aux2, Bdhn1aW,
-       pch = 16,
-       main=versus)
-  abline(0,1, col="blue", lwd=2)
-  dev.off()
-  print(Wilcox)
-  contador = contador+1 
-  }
-
+# 4 Correlacion tests (Pearson, Spearman & Kendall)
 
 # Data for Correlation test
 tab_Bdhns <- subset(tab_Bdis2, select=c(2:5, 17:21 ))
@@ -121,10 +110,6 @@ tab_Bdhns$Bdhn2D<-as.factor(tab_Bdhns$Bdhn2D)
 tab_Bdhns$Bdhn3D<-as.factor(tab_Bdhns$Bdhn3D)
 tab_Bdhns$Bdhn7D<-as.factor(tab_Bdhns$Bdhn7D)
 
-
-
-# 4 Correlacion tests (Pearson, Spearman & Kendall)
-
   #4.1 Function to extract correlation coefficient and p-values
 corrFuncP <- function(var1, var2, data) {
   result = cor.test(data[,var1], data[,var2], method="pearson", exact=FALSE)
@@ -137,7 +122,7 @@ corrFuncP <- function(var1, var2, data) {
   #Pearson Test
 sink("Correlation_testPearson.csv", type="output")
 contador=2
-while(contador<=32){
+while(contador<=33){
 vars2 = data.frame(v1=names(tab_Bdis2)[contador], v2=names(tab_Bdis2)[-1]) # Apply corrFunc to all rows of vars
 
 P1 = do.call(rbind, mapply(corrFuncP, vars2[,(1)], vars2[,2], MoreArgs=list(data=tab_Bdis2), 
