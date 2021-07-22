@@ -7,7 +7,7 @@ library(lifecycle)
 library(tidyverse)
 library(plyr)
 library(dplyr)
-library("ggpubr")
+library(ggpubr)
 library(lattice)
 library(FSA)
 library(caret)
@@ -136,7 +136,8 @@ tab_allABS<- cbind(aux, delta13c_abs)
 
 
 contador=6
-while(contador<=21){
+while(contador<=22){
+  if (contador == 21) { contador=contador+1; next }
   Data1<- subset(tab_allABS, select=c(22,contador))
   tab_allABS$contador<-tab_allABS[,contador]
   hist<-histogram (~ tab_allABS$contador | tab_allABS$ecotype,
