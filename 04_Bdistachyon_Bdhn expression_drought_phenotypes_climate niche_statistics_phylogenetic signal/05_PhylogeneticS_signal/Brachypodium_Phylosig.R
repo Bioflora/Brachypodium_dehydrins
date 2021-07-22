@@ -31,7 +31,7 @@ Bdhn7D
 
 #ultrametric tree (branches could not have zero lenght) (age-max = 1 Ma, based on Sancho et al. 2018)
 BdistachyonBdhntree.u<-chronopl(BdistachyonBdhnTree.tree, lambda=0.5, age.max = 1,node = "root", tol = 1e-8,CV = FALSE, eval.max = 500, iter.max = 500)
-plot(BdistachyonBdhntree.u)
+plot(BdistachyonSptree.u)
 
 #phylo.heatmap
 phylo.heatmap(BdistachyonBdhntree.u,BdistachyonTPMD.data,standardize=TRUE,fsize=c(0.5,0.7,1))
