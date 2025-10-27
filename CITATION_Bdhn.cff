@@ -1,0 +1,64 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Brachypodium Dehydrin gene
+message: >-
+  If you use this dataset, please cite it using the metadata
+  from this file.
+type: dataset
+authors:
+  - given-names: 'María Ángeles '
+    family-names: Decena
+    email: mdecena@unizar.es
+    affiliation: >-
+      Escuela Politécnica Superior de Huesca, Universidad de
+      Zaragoza, Ctra. Cuarte km 1, 22071 Huesca, Spain.
+    orcid: 'https://orcid.org/0000-0003-0865-9929'
+  - given-names: Sergio
+    family-names: Gálvez-Rojas
+    orcid: 'https://orcid.org/0000-0003-4743-2807'
+    affiliation: ' ETSI Informática, Universidad de Málaga, Blvr Louis Pasteur 35, 29071 Málaga, Spain'
+  - given-names: Federico
+    family-names: Agostini
+    affiliation: ' ETSI Informática, Universidad de Málaga, Blvr Louis Pasteur 35, 29071 Málaga, Spain'
+  - given-names: Rubén
+    family-names: Sancho
+    orcid: 'https://orcid.org/0000-0002-4845-4242'
+    affiliation: ' Escuela Politécnica Superior de Huesca, Universidad de Zaragoza, Ctra. Cuarte km 1, 22071 Huesca, Spain'
+  - given-names: Bruno
+    family-names: Contreras-Moreira
+    orcid: 'https://orcid.org/0000-0002-5462-907X'
+    affiliation: >-
+      Estación Experimental de Aula Dei-Consejo Superior de
+      Investigaciones Científicas, Av. Montañana 1005, 50059
+      Zaragoza, Spain.
+  - given-names: David
+    family-names: Des Marais
+    affiliation: >-
+      Massachusetts Institute of Technology: Cambridge, MA,
+      US
+    orcid: 'https://orcid.org/0000-0002-6772-6987'
+  - given-names: Pilar
+    family-names: Hernandez
+    affiliation: ' Instituto de Agricultura Sostenible, IAS-CSIC, Menendez Pidal Ave, 14004 Córdoba, Spain'
+    orcid: 'https://orcid.org/0000-0001-5166-4454'
+  - given-names: Pilar
+    family-names: Catalán
+    orcid: 'https://orcid.org/0000-0001-7793-5259'
+    affiliation: ' Escuela Politécnica Superior de Huesca, Universidad de Zaragoza, Ctra. Cuarte km 1, 22071 Huesca, Spain'
+identifiers:
+  - type: doi
+    value: 10.3390/plants10122664
+    description: Link to the publication
+repository-code: 'https://github.com/Bioflora/Brachypodium_dehydrins'
+url: 'https://doi.org/10.3390/plants10122664'
+keywords:
+  - ' Bdhn genes'
+  - cis-regulatory elements
+  - comparative genomics
+  - ' drought-related traits'
+  - phylogenetics
+commit: citation file
+version: v1
+date-released: '2021-07-01'
